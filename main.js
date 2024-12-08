@@ -65,9 +65,9 @@ const verifyUser=((req,res,next)=>{
     }
 })
 
-app.post("/", async (req,res)=>{
+app.post("/", (req,res)=>{
     const {username,password}=req.body
-    const user= await users.find((person)=>{
+    const user= users.find((person)=>{
         return person.username===username && person.password===password
     })
     if(user){
